@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <div>
+    <ul>
+      <% if (listItems.length) { %>
+      <% listItems.forEach((item, idx) => { %>
+      <form action="/<%= idx %>" method="POST">
+        <li style="list-style: none; width: 200px;">
+          <div style="margin: 10px 0;">
+            <p style="display: inline;"><%= item.content %></p>
+            <button type="submit" style="position: relative; right: 0px;">Delete</button>
+          </div>
+        </li>
+      </form>
+      <% }); %>
+      <% } else { %>
+      <p>There are no To-Dos</p>
+      <% } %>
+    </ul>
+  </div>
+  <div>
+    <form action="/" method="POST">
+      <input type="text" name="content" placeholder="Enter something to do">
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</body>
+
+</html>
